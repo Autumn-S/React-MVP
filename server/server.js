@@ -1,5 +1,6 @@
 import express from "express";
 const app = express();
+import cors from "cors";
 import pkg from "pg";
 const { Pool } = pkg;
 
@@ -10,7 +11,8 @@ const pool = new Pool({
   user: "autumn",
 });
 
-app.use(express.json()); //Middleware to parse request body
+app.use(cors());
+app.use(express.json());
 
 // Routes
 app.get("/posts", async (req, res) => {

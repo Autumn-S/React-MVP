@@ -4,6 +4,7 @@
 
 @layer utilities {
   body {
+    margin: 0;
     @apply bg-cover bg-center;
     background: linear-gradient(rgba(17, 5, 25, 0.778), rgba(24, 8, 37, 0.745)),
       url("./assets/benjamin-voros-phIFdC6lA4E-unsplash.jpg");
@@ -11,5 +12,11 @@
     height: 100vh;
     background-size: cover;
     background-position: top;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
