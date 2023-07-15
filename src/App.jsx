@@ -8,7 +8,7 @@ function App() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch("http://localhost:3000/posts");
+        const response = await fetch("http://localhost:3000/posts/1");
         const data = await response.json();
         setPost(data);
       } catch (error) {
