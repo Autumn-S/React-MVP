@@ -27,7 +27,7 @@ function App() {
 
   const fetchPosts = async () => {
     try {
-      const response = await fetch("http://localhost:3000/posts");
+      const response = await fetch("https://api.cyberhelm.com/posts");
       const data = await response.json();
       setPosts(data);
       setEditablePost({ ...data[0] }); // Set a copy of the first post as editable

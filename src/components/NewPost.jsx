@@ -33,7 +33,7 @@ function NewPost({ handleCreatePost }) {
         post_date: new Date(post.post_date).toISOString(),
       };
 
-      const response = await fetch("http://localhost:3000/posts", {
+      const response = await fetch("https://api.cyberhelm.com/posts", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -60,9 +60,10 @@ function NewPost({ handleCreatePost }) {
   };
 
   return (
-    <div className="fixed top-[40%] left-[40%] flex justify-center max-h-[50rem] text-center backdrop-blur gap-2 flex-col">
+    <div className="fixed top-[40%] left-[40%] flex justify-center p-2 h-[20 rem] w-[20rem] text-center backdrop-blur gap-4">
       <form className="" onSubmit={handleSubmit}>
         <input
+          className="flex"
           type="text"
           name="post_title"
           placeholder="Title"
@@ -71,6 +72,7 @@ function NewPost({ handleCreatePost }) {
         />
         <br />
         <input
+          className="flex"
           type="text"
           name="post_author"
           placeholder="Author"
@@ -79,6 +81,7 @@ function NewPost({ handleCreatePost }) {
         />
         <br />
         <input
+          className="flex"
           type="date"
           name="post_date"
           placeholder="Date"
@@ -87,6 +90,7 @@ function NewPost({ handleCreatePost }) {
         />
         <br />
         <input
+          className="flex"
           type="text"
           name="post_new"
           placeholder="Content"
@@ -94,7 +98,7 @@ function NewPost({ handleCreatePost }) {
           onChange={handleInputChange}
         />
         <br />
-        <button className="bg-[#180c27] text-[#fff]" type="submit">
+        <button className="flex bg-[#180c27] text-[#fff]" type="submit">
           Create Post
         </button>
       </form>

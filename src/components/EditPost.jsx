@@ -16,7 +16,7 @@ function EditPost({ editablePost, setEditablePost, handleCancelEdit }) {
     event.preventDefault();
     try {
       const { id, post_title, post_author, post_date, post_new } = updatedPost;
-      const response = await fetch(`http://localhost:3000/posts/${id}`, {
+      const response = await fetch(`https://api.cyberhelm.com/posts/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

@@ -3,9 +3,12 @@ import PropTypes from "prop-types";
 function DeletePost({ postId }) {
   const handleDelete = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/posts/${postId}`, {
-        method: "DELETE",
-      });
+      const response = await fetch(
+        `https://api.cyberhelm.com/posts/${postId}`,
+        {
+          method: "DELETE",
+        }
+      );
       if (response.ok) {
         // Handle successful deletion
         console.log("Post deleted successfully");

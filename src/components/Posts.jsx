@@ -22,7 +22,7 @@ function Posts({
   return (
     <div
       id="postParent"
-      className="fixed top-[10%] left-[25%] flex justify-center max-h-[50rem] w-[50rem] text-center overflow-y-auto backdrop-blur text-[#fff]"
+      className="fixed top-[10%] left-[25%] flex justify-center max-h-[50rem] w-[50rem] text-center overflow-y-auto backdrop-blur text-[#fff] border-4 border-solid border-[#c9c0f3]"
     >
       <div className="rounded-lg p-4">
         {posts.map((post) => (
