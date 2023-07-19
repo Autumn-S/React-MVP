@@ -1,31 +1,48 @@
+import PropTypes from "prop-types";
 import SiteLogo from "./SiteLogo";
 
-function Navbar() {
+function Navbar({ setShowAllPosts, editablePost, handleNewPostClick }) {
   return (
-    <>
+    <div>
       <SiteLogo />
-      <nav id="navbar" className=" fixed right-0 m-2">
+      <nav id="navbar" className="fixed right-0 m-2">
         <a
-          href="#"
-          className="m-2 p-2 text-[#ffffff] text-[1.2rem] font-[Roboto] rounded-xl hover:bg-[#936c97] group-hover:stroke-white "
+          href="home-link"
+          className="m-2 p-2 text-[#ffffff] text-[1.2rem] font-[Roboto] rounded-xl hover:bg-[#936c97] group-hover:stroke-white"
         >
-          About
+          Home
         </a>
         <a
           href="#"
-          className="m-2 p-2 text-[#ffffff] text-[1.2rem] font-[Roboto] rounded-xl hover:bg-[#936c97] group-hover:stroke-white "
+          onClick={() => setShowAllPosts(true)}
+          className="m-2 p-2 text-[#ffffff] text-[1.2rem] font-[Roboto] rounded-xl hover:bg-[#936c97] group-hover:stroke-white"
         >
           Posts
         </a>
+        {editablePost && (
+          <a
+            href="#"
+            className="m-2 p-2 text-[#ffffff] text-[1.2rem] font-[Roboto] rounded-xl hover:bg-[#936c97] group-hover:stroke-white"
+          >
+            Edit Post
+          </a>
+        )}
         <a
-          href="#"
-          className=" m-2 p-2 text-[#ffffff] text-[1.2rem] font-[Roboto] rounded-xl hover:bg-[#936c97] group-hover:stroke-white"
+          href="new-post"
+          className="m-2 p-2 text-[#ffffff] text-[1.2rem] font-[Roboto] rounded-xl hover:bg-[#936c97] group-hover:stroke-white"
+          onClick={handleNewPostClick}
         >
-          Contact
+          New Post
         </a>
       </nav>
-    </>
+    </div>
   );
 }
+
+Navbar.propTypes = {
+  setShowAllPosts: PropTypes.func,
+  editablePost: PropTypes.object, // Add the prop type for editablePost
+  handleNewPostClick: PropTypes.func, // Add the prop type for handleNewPostClick
+};
 
 export default Navbar;

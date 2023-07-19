@@ -41,17 +41,18 @@ app.get("/posts/:id", async (req, res) => {
   }
 });
 
-//Create new post
+// Create new post
 app.post("/posts", async (req, res) => {
   try {
     const { post_title, post_author, post_date, post_new } = req.body;
     const newPost = await pool.query(
-      `INSERT INTO posts (post_title, post_author, post_date, post_new) VALUES (${post_title}, ${post_author}, ${post_date}, ${post_new})`
+      "INSERT INTO posts (post_title, post_author, post_date, post_new) VALUES ($1, $2, $3, $4)",
+      [post_title, post_author, post_date, post_new]
     );
-    res.status(200).send("New post made!");
+    res.status(201).send("New post created!");
   } catch (error) {
-    console.error("Error making post:", error);
-    res.status(500).json({ error: "Error making post" });
+    console.error("Error creating post:", error);
+    res.status(500).json({ error: "Error creating post" });
   }
 });
 
